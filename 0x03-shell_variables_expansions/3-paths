@@ -1,2 +1,11 @@
 #!/bin/bash
-echo $PATH | tr ": "\n" | wc -l
+IFS=":"
+count=0
+
+for directory in $PATH; do
+  if [ -n "$directory" ]; then
+    ((count++))
+  fi
+done
+
+echo $count
